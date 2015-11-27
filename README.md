@@ -6,7 +6,7 @@ This program dumps assets from *.wad files (used by Hotline Miami 2: Wrong Numbe
 
 # Usage
 
-If you're on Mac OS X and have the GOG version of the game, it will automatically use **hlm2_data_desktop.wad** from the mounted .dmg file. Otherwise you can still pass the location of your *.wad file to the program:
+If you're on Mac OS X and have the GOG version of the game, it will automatically use **hlm2_data_desktop.wad** from the mounted .dmg file. Alternatively you might as well pass the location of your *.wad file to the program:
 
 ```sh
 $ ./ripper <hlm2_data_desktop.wad>
@@ -24,7 +24,7 @@ $ gcc ripper.c -o ripper
 
 # OGG Files (Music)
 
-For some reason, VLC wasn't capable of playing the *.ogg (vorbis) files dumped to disk. However, it's possible to convert them to e.g. *.mp3 with a converter such as ffmpeg.
+For some reason, VLC might not be capable of playing the *.ogg (vorbis) files of this game. However, it's possible to convert them to e.g. *.mp3 with a converter such as ffmpeg.
 
 Mac OS X:
 ```sh

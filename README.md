@@ -6,7 +6,7 @@ This program dumps assets from *.wad files (used by Hotline Miami 2: Wrong Numbe
 
 # Usage
 
-If you're on Mac OS X and using the GOG version of the game, it will automatically use **hlm2_data_desktop.wad** from the mounted .dmg file. Otherwise you can still pass the location of your *.wad file to the program:
+If you're on Mac OS X and have the GOG version of the game, it will automatically use **hlm2_data_desktop.wad** from the mounted .dmg file. Otherwise you can still pass the location of your *.wad file to the program:
 
 ```sh
 $ ./ripper <hlm2_data_desktop.wad>

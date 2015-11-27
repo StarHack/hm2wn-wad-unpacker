@@ -44,7 +44,11 @@ int extract() {
 
   // Read wad header (= get number of files)
   WADHeader header;
-  fread(&header, sizeof(header.count), 1, file);
+  size_t res = fread(&header, sizeof(header.count), 1, file);
+
+  if(!res || !header.count) {
+    return -2;
+  }
 
   FileHeader fileHeader[header.count];
   char* fileNameBuffer;

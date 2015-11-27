@@ -1,3 +1,5 @@
+![Header Image](http://i.imgur.com/zm2bjlH.jpg)
+
 # *.WAD Ripper
 
 This program dumps assets from *.wad files (used by Hotline Miami 2: Wrong Number) to disk.  

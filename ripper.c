@@ -21,7 +21,6 @@ struct FileHeaderStruct {
 int mkdirtree(const char* fileName) {
   char* path = (char*)fileName;
   char* end = strstr(path, "/");
-  //printf("creating tree: %s\n", fileName);
   while(end) {
     int len = end-path;
     char name[len+1];
@@ -112,7 +111,7 @@ int autoDetect() {
 int main(int argc, const char *argv[]) {
   inputPath = (char*)argv[1];
   if(argc != 2 && !autoDetect()) {
-    printf("Usage: BLA\n");
+    printf("Usage: \n");
     return -1;
   }
 

@@ -48,8 +48,6 @@ int extract() {
 
   FileHeader fileHeader[header.count];
   char* fileNameBuffer;
-  char buffer[1024];
-  long location = 0;
   for(unsigned int i=0; i<header.count; i++) {
     // Read length of filename
     fread(&fileHeader[i].nameLength, sizeof(fileHeader[i].nameLength), 1, file);
@@ -63,15 +61,13 @@ int extract() {
     fread(&fileHeader[i].length, sizeof(fileHeader[i].length), 1, file);
     fread(&fileHeader[i].offset, sizeof(fileHeader[i].offset), 1, file);
 
-    location = ftell(file);
-
     // Prepare output folder structure
     mkdirtree(fileHeader[i].name);
   }
 
-  // Dump all files to disc
+  // Dump all files to disk
+  char buffer[1024];
   for(unsigned int i=0; i<header.count; i++) {
-    // Dump file to disc
     FILE* of = fopen(fileHeader[i].name, "w");
     int bytesRemaining = fileHeader[i].length;
     size_t bytes_read = 0;
@@ -116,14 +112,12 @@ int main(int argc, const char *argv[]) {
   }
 
   int ret = extract();
-
-  switch(ret) {
-    case -1:
-      printf("Unable to open input file\n");
-      break;
-    default:
-      break;
+  if(ret < 0) {
+    printf("Failed to extract!\n");
+  }
+  else {
+    printf("Unpacking succeeded!\n");
   }
 
-  return 0;
+  return ret;
 }

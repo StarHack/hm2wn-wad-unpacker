@@ -29,14 +29,16 @@ For some reason, VLC might not be capable of playing the *.ogg (vorbis) files of
 Mac OS X:
 ```sh
 $ brew install ffmpeg
-$ ffmpeg -i Detection.ogg -acodec libmp3lame Detection.mp3
+$ ffmpeg -f ogg -i Detection.ogg -acodec libmp3lame Detection.mp3
 ```
 
 or batch convert all *.ogg files to *.mp3:
 
 ```sh
-$  find . -name '*.ogg' -exec sh -c 'ffmpeg -i "$0" -acodec libmp3lame "${0%%.ogg}.mp3"' {} \;
+$  find . -name '*.ogg' -exec sh -c 'ffmpeg -f ogg -i "$0" -acodec libmp3lame "${0%%.ogg}.mp3"' {} \;
 ```
+
+**Note:** The `-f ogg` flag forces ffmpeg to read a vorbis stream. This is necessary because automatic detection doesn't work for all music files.
 
 Enjoy!
 

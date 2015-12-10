@@ -40,6 +40,23 @@ $  find . -name '*.ogg' -exec sh -c 'ffmpeg -f ogg -i "$0" -acodec libmp3lame "$
 
 **Note:** The `-f ogg` flag forces ffmpeg to read a vorbis stream. This is necessary because automatic detection doesn't work for all music files.
 
+# File Format Specification
+
+A *.wad file has the following file header specification:
+
+```sh
+4 bytes ... file header - only contains a 32-bit Integer for the file count
+```
+
+Afterwards, each file has an individual header of dynamic size:
+
+```sh
+4 bytes ... file name length - 32-bit Integer for the file header length
+dynamic ... file name - length is equal to the value read above
+8 bytes ... file length - 64-bit Integer for the file length
+8 bytes ... file offset - 64-bit Integer showing at which offset the file begins in the binary
+```
+
 Enjoy!
 
 
